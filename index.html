@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:200,300,400,600,700'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
+  <!-- including FusionCharts core package JS files --> 
+  <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+  <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <!-- <div id="chart-container1"></div> -->
+ 
+  
+<div class="example" style="margin: 64px">
+          
+  <div class="row">
+    <div class="col-sm-6">
+      <h1><i class="fa fa-home" aria-hidden="true"></i> SMART HOME</h1>
+    </div>
+    <div class="col-sm-6" style="text-align: right;">
+        <button id="btnOnAll" class="btn btn-link" onclick="onAll()"><h3 style="display: inline-block; color: #606060;" ><i class="fa fa-lightbulb-o" aria-hidden="true" style="color: #FFC300"></i> ON ALL</h3></button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button id="btnOffAll" class="btn btn-link" onclick="offAll()"><h3 style="display: inline-block; color: #606060;" ><i class="fa fa-lightbulb-o" aria-hidden="true" style="color: #000"></i> OFF ALL</h3></button>
+      </div>
+  </div>
+
+  <div class="row" style="background:#efc2a3">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-5" style="text-align:left;">
+        <img src="image/business.png" alt="Avatar" style="width:100px; border-radius:50%; margin-top:-32px;">&nbsp;&nbsp;
+        <h2 style="display: inline-block;"> GARAGE</h2>
+        <!-- <h2><i class="fa fa-car" aria-hidden="true"></i> GARAGE</h2> -->
+      </div>
+    <div class="col-sm-6" style="text-align:right; padding-right: 64px;">
+      <button id="btn1" type="button" class="btn btn-lg btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="btn1Update()">
+        <div class="handle"></div>
+      </button>
+    </div>
+
+    <div class="col-sm-1"></div>
+    <div class="col-sm-6" style="text-align:left; margin-top: -80px; padding-left: 32px;">
+        <button class="btn btn-link" data-toggle="modal" data-target="#exampleModal1"><h2 style="display: inline-block; color: #606060; font-family:Montserrat;"><i class="fa fa-clock-o" aria-hidden="true"></i> TIME <h2 id="getTime1" style="cursor:pointer; display:inline; color: #606060; font-family:Montserrat;"> </h2></h2></button>
+    </div>
+    <div class="col-sm-5" style="text-align:right; margin-top: -80px; padding-right: 64px;">
+    <button id="btntimeOnOff1" type="button" class="btn btn-lg btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="timeOnOff1()">              
+        <div class="handle"></div>
+      </button>
+    </div>
+
+
+    <div id="chart-container1" style="margin: auto; margin-bottom:32px;">
+      <svg width="850px"  height="300px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-rolling" style="background: none;">
+        <circle cx="50" cy="50" fill="none" ng-attr-stroke="{{config.color}}" ng-attr-stroke-width="{{config.width}}" ng-attr-r="{{config.radius}}" ng-attr-stroke-dasharray="{{config.dasharray}}" stroke="#6ac1a5" stroke-width="9" r="33" stroke-dasharray="155.50883635269477 53.83627878423159" transform="rotate(324 50 50)">
+          <animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform>
+        </circle>
+      </svg>
+    </div>
+
+
+  </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title" id="exampleModalLabel">Set time switch</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" style="text-align:center;">
+              <h3>TIME ON
+                <select id="hrOn1" style="font-family:Montserrat; color: #6b7381; border: 1px solid rgba(189, 193, 200, 0.5);">
+                  <option>00</option>
+                  <option>01</option>
+                  <option>02</option>
+                  <option>03</option>
+                  <option>04</option>
+                  <option>05</option>
+                  <option>06</option>
+                  <option>07</option>
+                  <option>08</option>
+                  <option>09</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                  <option>13</option>
+                  <option>14</option>
+                  <option>15</option>
+                  <option>16</option>
+                  <option>17</option>
+                  <option>18</option>
+                  <option>19</option>
+                  <option>20</option>
+                  <option>21</option>
+                  <option>22</option>
+                  <option>23</option>
+                </select>
+                :
+                <select id="minOn1" style="font-family:Montserrat; color: #6b7381; border: 1px solid rgba(189, 193, 200, 0.5);">
+                  <option>00</option>
+                  <option>05</option>
+                  <option>10</option>
+                  <option>15</option>
+                  <option>20</option>
+                  <option>25</option>
+                  <option>30</option>
+                  <option>35</option>
+                  <option>40</option>
+                  <option>45</option>
+                  <option>50</option>
+                  <option>55</option>
+                </select>
+              </h3>
+            </div>
+            <div class="modal-body" style="text-align:center; font-family:Montserrat;">
+                <h3>TIME OFF
+                  <select id="hrOff1" style="font-family:Montserrat; color: #6b7381; border: 1px solid rgba(189, 193, 200, 0.5);">
+                    <option>00</option>
+                    <option>01</option>
+                    <option>02</option>
+                    <option>03</option>
+                    <option>04</option>
+                    <option>05</option>
+                    <option>06</option>
+                    <option>07</option>
+                    <option>08</option>
+                    <option>09</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                  </select>
+                  :
+                  <select id="minOff1" style="font-family:Montserrat; color: #6b7381; border: 1px solid rgba(189, 193, 200, 0.5);">
+                    <option>00</option>
+                    <option>05</option>
+                    <option>10</option>
+                    <option>15</option>
+                    <option>20</option>
+                    <option>25</option>
+                    <option>30</option>
+                    <option>35</option>
+                    <option>40</option>
+                    <option>45</option>
+                    <option>50</option>
+                    <option>55</option>
+                  </select>
+                </h3>
+              </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" style="font-family:Montserrat;" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" style="font-family:Montserrat;" data-dismiss="modal" onclick="saveTimeOnOff1()">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  <div class="row" style="background:#fcdbab">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-6" style="text-align:left;">
+      <img src="image/wall1.jpg" alt="Avatar" style="width:100px; border-radius:50%; margin-top:-32px;">&nbsp;&nbsp;
+      <h2 style="display: inline-block;"> WALL</h2>
+      <!-- <h2><i class="fa fa-lightbulb-o" aria-hidden="true"></i> WALL</h2> -->
+    </div>
+    <div class="col-sm-5" style="text-align:right; padding-right: 64px;">
+      <!-- <button type="button" class="btn btn-sm btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off"> -->
+      <button id="btn2" type="button" class="btn btn-lg btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="btn2Update()">              
+        <div class="handle"></div>
+      </button>
+    </div>
+
+
+    <div class="col-sm-1"></div>
+    <div class="col-sm-6" style="text-align:left; margin-top: -80px; padding-left: 32px;">
+        <button id="btnSetTime2" class="btn btn-link" data-toggle="modal" data-target="#exampleModal2"><h2 style="display: inline-block; color: #606060; font-family:Montserrat;"><i class="fa fa-clock-o" aria-hidden="true"></i> TIME <h2 id="getTime2" style="cursor:pointer; display:inline; color: #606060; font-family:Montserrat;"></h2></h2></button>
+      <!-- <h2><i class="fa fa-clock-o" aria-hidden="true"></i> TIME 12:00</h2> -->
+    </div>
+    <div class="col-sm-5" style="text-align:right; margin-top: -80px; padding-right: 64px;">
+    <button id="btntimeOnOff2" type="button" class="btn btn-lg btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="timeOnOff2()">              
+        <div class="handle"></div>
+      </button>
+    </div>
+
+    <div id="chart-container2" style="margin: auto; margin-bottom:32px;">
+        <svg width="850px"  height="300px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-rolling" style="background: none;">
+          <circle cx="50" cy="50" fill="none" ng-attr-stroke="{{config.color}}" ng-attr-stroke-width="{{config.width}}" ng-attr-r="{{config.radius}}" ng-attr-stroke-dasharray="{{config.dasharray}}" stroke="#6ac1a5" stroke-width="9" r="33" stroke-dasharray="155.50883635269477 53.83627878423159" transform="rotate(324 50 50)">
+            <animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform>
+          </circle>
+        </svg>
+      </div>
+
+  </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title" id="exampleModalLabel">Set time switch</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" style="text-align:center;">
+              <h3>TIME ON
+                <select id="hrOn2" style="font-family:Montserrat; color: #6b7381; border: 1px solid rgba(189, 193, 200, 0.5);">
+                  <option>00</option>
+                  <option>01</option>
+                  <option>02</option>
+                  <option>03</option>
+                  <option>04</option>
+                  <option>05</option>
+                  <option>06</option>
+                  <option>07</option>
+                  <option>08</option>
+                  <option>09</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                  <option>13</option>
+                  <option>14</option>
+                  <option>15</option>
+                  <option>16</option>
+                  <option>17</option>
+                  <option>18</option>
+                  <option>19</option>
+                  <option>20</option>
+                  <option>21</option>
+                  <option>22</option>
+                  <option>23</option>
+                </select>
+                :
+                <select id="minOn2" style="font-family:Montserrat; color: #6b7381; border: 1px solid rgba(189, 193, 200, 0.5);">
+                  <option>00</option>
+                  <option>05</option>
+                  <option>10</option>
+                  <option>15</option>
+                  <option>20</option>
+                  <option>25</option>
+                  <option>30</option>
+                  <option>35</option>
+                  <option>40</option>
+                  <option>45</option>
+                  <option>50</option>
+                  <option>55</option>
+                </select>
+              </h3>
+            </div>
+            <div class="modal-body" style="text-align:center;">
+                <h3>TIME OFF
+                  <select id="hrOff2" style="font-family:Montserrat; color: #6b7381; border: 1px solid rgba(189, 193, 200, 0.5);">
+                    <option>00</option>
+                    <option>01</option>
+                    <option>02</option>
+                    <option>03</option>
+                    <option>04</option>
+                    <option>05</option>
+                    <option>06</option>
+                    <option>07</option>
+                    <option>08</option>
+                    <option>09</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                  </select>
+                  :
+                  <select id="minOff2" style="font-family:Montserrat; color: #6b7381; border: 1px solid rgba(189, 193, 200, 0.5);">
+                    <option>00</option>
+                    <option>05</option>
+                    <option>10</option>
+                    <option>15</option>
+                    <option>20</option>
+                    <option>25</option>
+                    <option>30</option>
+                    <option>35</option>
+                    <option>40</option>
+                    <option>45</option>
+                    <option>50</option>
+                    <option>55</option>
+                  </select>
+                </h3>
+              </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" style="font-family:Montserrat;" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" style="font-family:Montserrat;" data-dismiss="modal" onclick="saveTimeOnOff2()">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+  <div class="row" style="background:#d8bce0">
+      <div class="col-sm-1"></div>
+    <div class="col-sm-6" style="text-align:left;">
+      <img src="image/room.jpg" alt="Avatar" style="width:100px; border-radius:50%; margin-top:-32px;">&nbsp;&nbsp;
+      <h2 style="display: inline-block;"> SOFA</h2>
+      <!-- <h2><i class="fa fa-lightbulb-o" aria-hidden="true"></i> SOFA</h2> -->
+    </div>
+    <div class="col-sm-5" style="text-align:right; padding-right: 64px;">
+      <button id="btn3" type="button" class="btn btn-lg btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="btn3Update()">              
+        <div class="handle"></div>
+      </button>
+    </div>
+     <!-- 2222222222222222 -->
+    <div class="col-sm-1"></div>
+    <div class="col-sm-6" style="text-align:left; margin-top: -80px; padding-left: 32px;">
+        <button class="btn btn-link" data-toggle="modal" data-target="#exampleModal3"><h2 style="display: inline-block; color: #606060; font-family:Montserrat;"><i class="fa fa-clock-o" aria-hidden="true"></i> TIME <h2 id="getTime3" style="cursor:pointer; display:inline; color: #606060; font-family:Montserrat;"> </h2></h2></button>
+    </div>
+    <div class="col-sm-5" style="text-align:right; margin-top: -80px; padding-right: 64px;">
+    <button id="btntimeOnOff3" type="button" class="btn btn-lg btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="timeOnOff3()">              
+        <div class="handle"></div>
+      </button>
+    </div>
+
+
+    <div id="chart-container3" style="margin: auto; margin-bottom:32px;">
+        <svg width="850px"  height="300px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-rolling" style="background: none;">
+          <circle cx="50" cy="50" fill="none" ng-attr-stroke="{{config.color}}" ng-attr-stroke-width="{{config.width}}" ng-attr-r="{{config.radius}}" ng-attr-stroke-dasharray="{{config.dasharray}}" stroke="#6ac1a5" stroke-width="9" r="33" stroke-dasharray="155.50883635269477 53.83627878423159" transform="rotate(324 50 50)">
+            <animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform>
+          </circle>
+        </svg>
+      </div>
+
+
+  </div>
+
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title" id="exampleModalLabel">Set time switch</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" style="text-align:center;">
+              <h3>TIME ON
+                <select id="hrOn3" style="font-family:Montserrat; color: #6b7381; border: 1px solid rgba(189, 193, 200, 0.5);">
+                  <option>00</option>
+                  <option>01</option>
+                  <option>02</option>
+                  <option>03</option>
+                  <option>04</option>
+                  <option>05</option>
+                  <option>06</option>
+                  <option>07</option>
+                  <option>08</option>
+                  <option>09</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                  <option>13</option>
+                  <option>14</option>
+                  <option>15</option>
+                  <option>16</option>
+                  <option>17</option>
+                  <option>18</option>
+                  <option>19</option>
+                  <option>20</option>
+                  <option>21</option>
+                  <option>22</option>
+                  <option>23</option>
+                </select>
+                :
+                <select id="minOn3" style="font-family:Montserrat; color: #6b7381; border: 1px solid rgba(189, 193, 200, 0.5);">
+                  <option>00</option>
+                  <option>05</option>
+                  <option>10</option>
+                  <option>15</option>
+                  <option>20</option>
+                  <option>25</option>
+                  <option>30</option>
+                  <option>35</option>
+                  <option>40</option>
+                  <option>45</option>
+                  <option>50</option>
+                  <option>55</option>
+                </select>
+              </h3>
+            </div>
+            <div class="modal-body" style="text-align:center;">
+                <h3>TIME OFF
+                  <select id="hrOff3" style="font-family:Montserrat; color: #6b7381; border: 1px solid rgba(189, 193, 200, 0.5);">
+                    <option>00</option>
+                    <option>01</option>
+                    <option>02</option>
+                    <option>03</option>
+                    <option>04</option>
+                    <option>05</option>
+                    <option>06</option>
+                    <option>07</option>
+                    <option>08</option>
+                    <option>09</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                  </select>
+                  :
+                  <select id="minOff3" style="font-family:Montserrat; color: #6b7381; border: 1px solid rgba(189, 193, 200, 0.5);">
+                    <option>00</option>
+                    <option>05</option>
+                    <option>10</option>
+                    <option>15</option>
+                    <option>20</option>
+                    <option>25</option>
+                    <option>30</option>
+                    <option>35</option>
+                    <option>40</option>
+                    <option>45</option>
+                    <option>50</option>
+                    <option>55</option>
+                  </select>
+                </h3>
+              </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" style="font-family:Montserrat;" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" style="font-family:Montserrat;" data-dismiss="modal" onclick="saveTimeOnOff3()">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+</div><!-- /.container -->
+
+</script> -->
+<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="charts.js"></script>
+<!-- Connect Firebase -->
+
+</body>
+
+</html>
